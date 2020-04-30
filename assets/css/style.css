@@ -32,12 +32,13 @@ button {
     border: none;
 }
 
-#backgroundBox {
+.jumbotron {
     background: url(../images/triviaBackground.jpg) no-repeat 
     center;
     background-size: cover;
     margin-top: 100px;
-    height: 400px;
+    height: 450px;
+    width: auto;
 }
 
 #startButton {

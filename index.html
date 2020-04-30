@@ -10,33 +10,47 @@
 
 <body>
 
+    <!-- This container will make the jumbotron a little smaller in width -->
     <div class= "container">
 
-        <div class= "row">
+        <div class="container">
 
-            <div class= "col-md-2"></div>
-            <div class= "col-md-8" id= "backgroundBox">
+            <div class="jumbotron jumbotron-fluid" id= "spacing">
 
-                <p id= "triviaTitle">Minecraft Trivia</p>
+                <div id= "triviaTitle">
 
-                <div class= "row">
-
-                    <div class= "col-md-2"></div>
-                    <div class= "col-md-8" id= "startButton">
-                        <button id= "start">Click Here to Start</button>
-                    </div>
-                    <div class= "col-md-2"></div>
-
-                    <div class= "col-md-12" id= "TimeRemaining">
-                        <p>Time remaining: </p>
-                    </div>
-                    <div class= "col-md-12" id= "Questions"></div>
-                    <div class= "col-md-12" id= "Answers"></div>
+                    <p>Minecraft Trivia</p>
 
                 </div>
 
-            </div>
-            <div class= "col-md-2"></div>
+                <div class= "row">
+                    
+                    <div class= "col-md-2"></div>
+
+                    <div class= "col-md-8" id= "startButton">
+
+                        <button id= "start">Click Here to Start</button>
+
+                    </div>
+
+                    <div class= "col-md-2"></div>
+                    
+                </div>
+
+                <div class="container">
+                    
+                    <div id="game">
+
+                      <p id="TimeRemaining" class="lead">Time Remaining: <span id="timer"></span></p>
+                      <p id="currentQuestion" class="lead"></p>
+                      
+                    </div>
+
+                    <div id="results"></div>
+                        
+                </div>
+
+            </div>    
 
         </div>
 
