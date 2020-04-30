@@ -1,3 +1,13 @@
+@font-face {
+    /* https://fontmeme.com/fonts/minecraft-font/ */
+    font-family: "Minecraft";
+    src: url("../fonts/minecraftfont.ttf") format("truetype"), /* Safari, Android, iOS */
+         url("../fonts/minecraftfont.woff") format("woff"), /* Modern Browsers */
+         url("../fonts/minecraftfont.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+  }
+
 /* This youtube video helped me make it so no white space was shown at the bottom of the screen when
 I shrank the screen size down
 https://www.youtube.com/watch?v=jNXrg0_KFBQ */
@@ -17,3 +27,11 @@ body {
     margin-top: 100px;
     height: 400px;
 }
+
+#triviaTitle {
+    color: white;
+    text-align: center;
+    font-family: 'Minecraft';
+    font-size: 30px;
+}
+
