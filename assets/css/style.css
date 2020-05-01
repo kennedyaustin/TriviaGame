@@ -7,7 +7,7 @@
          url("../fonts/minecraftfont.woff2") format("woff2"); /* Modern Browsers */
     font-weight: normal;
     font-style: normal;
-  }
+}
 
 /* This youtube video helped me make it so no white space was shown at the bottom of the screen when
 I shrank the screen size down
@@ -15,48 +15,47 @@ https://www.youtube.com/watch?v=jNXrg0_KFBQ */
 body {
     background: url(../images/backgroundPic.jpg) no-repeat
     center center fixed;
-       -webkit-background-size: cover;
-       -moz-background-size: cover;
-       -o-background-size: cover;
-       background-size: cover;
-}
-
-p {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     color: white;
     text-align: center;
     font-family: 'Minecraft';
 }
 
-button {
-    background-color: transparent;
-    border: none;
+.wrapper {
+    margin: 10px auto;
+    height: 500px;
+    width: 60%;
+    text-align: center;
 }
 
-.jumbotron {
-    background: url(../images/triviaBackground.jpg) no-repeat 
-    center;
-    background-size: cover;
-    margin-top: 100px;
-    height: 450px;
+.answerchoice {
+	border: 1px solid black;
+    border-radius: 5%;
+	width: 40%;
+	color: black;
+    text-align: center;
+    margin: 10px auto;
+    font-size: 15px;
+    font-weight: bold;
+    background-image: url(../images/minecraftlava.png);
+    overflow-wrap: normal;
+}
+
+img {
+    max-height: 250px;
     width: auto;
 }
 
-#startButton {
-    margin-top: 40px;
-    text-align: center;
-    font-family: 'Minecraft';
-    font-size: 25px;
+#reset {
+    visibility: visible;
 }
 
-#start {
-    color: white;
-}
-
-#triviaTitle {
-    font-size: 30px;
-}
-
-#TimeRemaining {
-    font-size: 20px;
-    margin-top: 50px;
+.btn {
+    position: relative;
+    bottom: -150px;
+    background-color: transparent;
+    border: none;
 }

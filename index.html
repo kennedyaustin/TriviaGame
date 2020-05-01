@@ -4,60 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Minecraft Trivia</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel= "stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel= "stylesheet" href= "assets/css/style.css">
 </head>
 
 <body>
 
-    <!-- This container will make the jumbotron a little smaller in width -->
-    <div class= "container">
+    <!-- This wrapper will contain everything that has to do with the game, quick and easy -->
+    <div class="wrapper"> 
 
-        <div class="container">
+        <h2>Minecraft Trivia</h2>	
 
-            <div class="jumbotron jumbotron-fluid" id= "spacing">
+        <!-- These 3 divs will hold the text 'boxes' for the timer, questions asked, and the possible answers
+        as well as the message that occurs after the user gets the question rightor wrong -->
+        <div id= "TimeRemaining"></div>
+        <div id= "questionsHere"></div>
+        <div id= "possibleAnswers"></div>
 
-                <div id= "triviaTitle">
-
-                    <p>Minecraft Trivia</p>
-
-                </div>
-
-                <div class= "row">
-                    
-                    <div class= "col-md-2"></div>
-
-                    <div class= "col-md-8" id= "startButton">
-
-                        <button id= "startGame">Click Here to Start</button>
-
-                    </div>
-
-                    <div class= "col-md-2"></div>
-                    
-                </div>
-
-                <div class="container">
-                    
-                    <div id="game">
-
-                      <p id="TimeRemaining" class="lead">Time Remaining: <span id="timer"></span></p>
-                      <p id="currentQuestion" class="lead"></p>
-
-                    </div>
-
-                    <div id="results"></div>
-                        
-                </div>
-
-            </div>    
-
-        </div>
+        <!-- These buttons will let the player start and reset the game, when they first load the page and
+        when they finish the game to try the trivia game again -->
+        <button class ="btn btn-success" id ="startGame">Click Here to Start</button><br>
+        <button class="btn btn-success" id="restartGame">Play Again?</button>
 
     </div>
 
     <script type= "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type= "text/javascript" src= "assets/javascript/game.js"></script>
+    <script type= "text/javascript" src= '../TriviaGame/assets/javacsript/app.js'></script>
 
 </body>
 
