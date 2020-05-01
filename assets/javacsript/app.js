@@ -7,52 +7,52 @@ $(document).ready(function () {
             myQuestions: 'How many blocks of gold were used to craft the enchanted golden apple in the past?', 
             possibleAnswers: ['8', '9', '5', '4'],
             correctAnswer: 0,
-            // photo: "assets/images/pupusas.jpg"
+            photo: 'assets/images/gapple.png'
         }, {
             myQuestions: 'What resource isn\'t used when constructing the pyramid for a beacon?', 
             possibleAnswers: ['Diamond', 'Iron', 'Emerald', 'Coal'],
             correctAnswer: 3,
-            // photo: "assets/images/mtdew.gif"
+            photo: 'assets/images/coal.png'
          }, {
             myQuestions: 'How much iron is needed to craft an anvil?', 
             possibleAnswers: ['29', '31', '25', '33'],
             correctAnswer: 1,
-            // photo: "assets/images/coffee.gif"
+            photo: 'assets/images/anvil.jpg'
         }, {
             myQuestions: 'How many bookshelves are needed to make a level 30 enchantment?', 
             possibleAnswers: ['15', '10', '19', '25'],
             correctAnswer: 0,
-            // photo: "assets/images/harvey.jpg"
+            photo: 'assets/images/enchantTable.png'
         }, {
             myQuestions: 'What can you use to make a turtle follow you?', 
             possibleAnswers: ['Grass', 'Kelp', 'Sugarcane', 'Seagrass'],
             correctAnswer: 3,
-            // photo: "assets/images/dozen.jpg"
+            photo: 'assets/images/turtle.png'
         }, {
             myQuestions: 'What version of Minecraft were bees added to the game?', 
-            possibleAnswers: ['1.09', '1.11', '1.15', '1.10'],
+            possibleAnswers: ['Version 1.09', 'Version 1.11', 'Version 1.15', 'Version 1.10'],
             correctAnswer: 2,
-            // photo: "assets/images/herring.jpg"
+            photo: 'assets/images/bees.jpg'
         }, {
             myQuestions: 'What hostile mob can be used to get the heads of other mobs?', 
             possibleAnswers: ['Wither', 'Charged Creeper', 'Zombie', 'Enderman'],
             correctAnswer: 1,
-            // photo: "assets/images/lemon.gif"
+            photo: 'assets/images/chargedCreeper.jpg'
         }, {
             myQuestions: 'What kind of pickaxe do you need to mine and collect obsidian?', 
             possibleAnswers: ['Stone', 'Iron', 'Gold', 'Diamond'],
             correctAnswer: 3,
-            // photo: "assets/images/guava.gif"
+            photo: 'assets/images/diamondPic.jpg'
         }, {
             myQuestions: 'What hostile mob drops the Totem of Undying item?', 
             possibleAnswers: ['Evoker', 'Blaze', 'Pillager', 'Witch'],
             correctAnswer: 0,
-            // photo: "assets/images/pupusas.jpg"
+            photo: 'assets/images/undying.jpg'
         }, {
             myQuestions: 'How much experience do you get from killing a respawned Enderdragon?', 
             possibleAnswers: ['12,000', '5,000', '2,000', '500'],
             correctAnswer: 3,
-            // photo: "assets/images/pupusas.jpg"
+            photo: 'assets/images/enddragon.png'
          }];
     
     // These are some global variables that I will need to use in the functions below, mainly to keep track of what the user has guessed,
@@ -60,14 +60,13 @@ $(document).ready(function () {
     let numberCorrect= 0;
     let numberIncorrect= 0;
     let numberOfunanswered= 0;
-    let timer= 10;
+    let timer= 15;
     var intervalId;
     var playerGuess= '';
     var gameRunning= false;
     var questionCount= triviaGame.length;
-    var pick;
+    var corresponding;
     var index;
-    var newArray= [];
     // This variable will hold the questions that have been asked
     var usedQuestionHolder= [];
 
@@ -76,7 +75,7 @@ $(document).ready(function () {
     // This line right here is used to hide the play again button from view until the game is over
     $('#restartGame').hide();
 
-    // -------------------------- Start Game Start ---------------------------
+    // -------------------------- Start Game Function Start ---------------------------
 
     $('#startGame').on("click", function () {
 
@@ -96,9 +95,9 @@ $(document).ready(function () {
 
     })
 
-    // -------------------------- Start Game End ---------------------------
+    // -------------------------- Start Game Function End ---------------------------
 
-    // -------------------------- Timer Start -------------------------
+    // -------------------------- Timer Functions Start -------------------------
 
     // This function will start the timer 
     function startTimer() {
@@ -126,7 +125,7 @@ $(document).ready(function () {
             numberOfunanswered++;
             // This will stop the timer for just a moment
             stop();
-            $('#possibleAnswers').html('<p>Oof! You ran out of time! The correct answer is: ' + pick.possibleAnswers[pick.correctAnswer] + '</p>');
+            $('#possibleAnswers').html('<p>Oof! You ran out of time! The correct answer is: ' + corresponding.possibleAnswers[corresponding.correctAnswer] + '</p>');
             hidepicture();
 
         }	
@@ -141,28 +140,29 @@ $(document).ready(function () {
 
     }
 
-    // -------------------------- Timer End -------------------------
+    // -------------------------- Timer Functions End -------------------------
 
-    // -------------------------- Questions Start ---------------------------
+    // -------------------------- Questions Function Start ---------------------------
 
-    // This function will randomly pick a question from the array of objects, then it'll display the question for the player,
+    // This function will randomly corresponding a question from the array of objects, then it'll display the question for the player,
     // and then loop through the array to hit all the possible questions and display their answers
     function displayQuestion() {
 
         // These 2 variables are how the webpage randomly chooses a question for the player to answer
+        $('#questionsHere').show();
         index= Math.floor(Math.random()*triviaGame.length);
-        pick= triviaGame[index];
+        corresponding= triviaGame[index];
 
         // This is how the randomly chosen question will be shown on the screen when the user clicks the play button
-        $('#questionsHere').html('<h6>' + pick.myQuestions + '</h6>');
-        for(var i = 0; i < pick.possibleAnswers.length; i++) {
+        $('#questionsHere').html('<h6>' + corresponding.myQuestions + '</h6>');
+        for(var i = 0; i < corresponding.possibleAnswers.length; i++) {
 
             // This for loop is how the possible answers to the questions generated above are shown to the 
             // player
             var answerblocks = $('<div>');
             // The variable answer blocks is going to generate <div>s for the user to see
             answerblocks.addClass('userChoice');
-            answerblocks.html(pick.possibleAnswers[i]);
+            answerblocks.html(corresponding.possibleAnswers[i]);
             // The code below is assigning each block a position so that the webpage can check
             // whether the chosen box contains the correct value for the answer
             answerblocks.attr('data-guessvalue', i);
@@ -180,7 +180,7 @@ $(document).ready(function () {
         playerGuess= parseInt($(this).attr('data-guessvalue'));
     
         // This if/else statement deals with what happens when the player click the correct or incorrect answer
-        if (playerGuess === pick.correctAnswer) {
+        if (playerGuess === corresponding.correctAnswer) {
 
             stop();
             numberCorrect++;
@@ -188,6 +188,7 @@ $(document).ready(function () {
             // answer for the next question that comes up
             playerGuess= '';
             $('#possibleAnswers').html('<p>You got it right! Good job!</p>');
+            $('#questionsHere').hide();
             hidepicture();
     
         } else {
@@ -195,7 +196,8 @@ $(document).ready(function () {
             stop();
             numberIncorrect++;
             playerGuess= '';
-            $('#possibleAnswers').html('<p>Doh! You got it wrong, the correct answer is: ' + pick.possibleAnswers[pick.correctAnswer] + '</p>');
+            $('#possibleAnswers').html('<p>Doh! You got it wrong, the correct answer is: ' + corresponding.possibleAnswers[corresponding.correctAnswer] + '</p>');
+            $('#questionsHere').hide();
             hidepicture();
 
         }
@@ -204,38 +206,45 @@ $(document).ready(function () {
 
     }
 
-    // -------------------------- Questions End ---------------------------
+    // -------------------------- Questions Function End ---------------------------
     
+    // This function will hide the pictures until the user clicks on one of the answer choices,
+    // and either gets the question correct or wrong
     function hidepicture () {
-        $("#possibleAnswers").append("<img src=" + pick.photo + ">");
-        newArray.push(pick);
+
+        // Underneath the possibleAnswers id the photo that corresponds to the question will appear
+        $('#possibleAnswers').append('<img src=' + corresponding.photo + '>');
         triviaGame.splice(index,1);
     
         var hidpic = setTimeout(function() {
-            $("#possibleAnswers").empty();
-            timer= 10;
+
+            $('#possibleAnswers').empty();
+            timer= 15;
     
         //run the score screen if all questions answered
-        if ((numberIncorrect + numberCorrect + numberOfunanswered) === questionCount) {
-            $("#questionsHere").empty();
-            $("#questionsHere").html("<h3>Game Over!  Here's how you did: </h3>");
-            $("#possibleAnswers").append("<h4> Correct: " + numberCorrect + "</h4>" );
-            $("#possibleAnswers").append("<h4> Incorrect: " + numberIncorrect + "</h4>" );
-            $("#possibleAnswers").append("<h4> Unanswered: " + numberOfunanswered + "</h4>" );
-            $("#restartGame").show();
-            numberCorrect = 0;
-            numberIncorrect = 0;
-            numberOfunanswered = 0;
+            if ((numberIncorrect + numberCorrect + numberOfunanswered) === questionCount) {
+                $("#questionsHere").empty();
+                $("#questionsHere").html("<h3>Game Over!  Here's how you did: </h3>");
+                $("#possibleAnswers").append("<h4> Correct: " + numberCorrect + "</h4>" );
+                $("#possibleAnswers").append("<h4> Incorrect: " + numberIncorrect + "</h4>" );
+                $("#possibleAnswers").append("<h4> Unanswered: " + numberOfunanswered + "</h4>" );
+                $("#restartGame").show();
+                numberCorrect = 0;
+                numberIncorrect = 0;
+                numberOfunanswered = 0;
     
-        } else {
+            } else {
+
             startTimer();
             displayQuestion();
     
-        }
+            }
+
         }, 2500);
     
-    
     }
+
+    // -------------------------- Restart Function Start ---------------------------
     
     // This is the function that will restart the game when the player has gone through all 10 questions
     // and they hit the play again button
@@ -246,9 +255,17 @@ $(document).ready(function () {
         $('#restartGame').hide();
         $('#possibleAnswers').empty();
         $('#questionsHere').empty();
+        // This will make the questions appear again after we empty the questions array
+        for(var i = 0; i < usedQuestionHolder.length; i++) {
+
+            triviaGame.push(usedQuestionHolder[i]);
+
+        }
         startTimer();
         displayQuestion();
     
     })
+
+    // -------------------------- Restart Function End ---------------------------
     
 })
