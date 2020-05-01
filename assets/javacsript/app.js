@@ -115,7 +115,7 @@ $(document).ready(function () {
     function countingDown() {
 
         // This will show the user how much time they have left to answer the current question
-        $('#TimeRemaining').html('<h>Time remaining: ' + timer + '</h5>');
+        $('#TimeRemaining').html('<h5>Time remaining: ' + timer + '</h5>');
         timer --;
     
         // This will stop the time when it reaches 0,  increase the value for the numberofunanswered variable, and tell the
@@ -126,7 +126,7 @@ $(document).ready(function () {
             // This will stop the timer for just a moment
             stop();
             $('#possibleAnswers').html('<p>Oof! You ran out of time! The correct answer is: ' + corresponding.possibleAnswers[corresponding.correctAnswer] + '</p>');
-            hidepicture();
+            pictures();
 
         }	
 
@@ -189,7 +189,7 @@ $(document).ready(function () {
             playerGuess= '';
             $('#possibleAnswers').html('<p>You got it right! Good job!</p>');
             $('#questionsHere').hide();
-            hidepicture();
+            pictures();
     
         } else {
 
@@ -198,7 +198,7 @@ $(document).ready(function () {
             playerGuess= '';
             $('#possibleAnswers').html('<p>Doh! You got it wrong, the correct answer is: ' + corresponding.possibleAnswers[corresponding.correctAnswer] + '</p>');
             $('#questionsHere').hide();
-            hidepicture();
+            pictures();
 
         }
 
@@ -210,25 +210,30 @@ $(document).ready(function () {
     
     // This function will hide the pictures until the user clicks on one of the answer choices,
     // and either gets the question correct or wrong
-    function hidepicture () {
+    function pictures() {
 
         // Underneath the possibleAnswers id the photo that corresponds to the question will appear
         $('#possibleAnswers').append('<img src=' + corresponding.photo + '>');
         triviaGame.splice(index,1);
     
-        var hidpic = setTimeout(function() {
+        var pics = setTimeout(function() {
 
             $('#possibleAnswers').empty();
             timer= 15;
     
-        //run the score screen if all questions answered
+            // This if/else statement will end the game/continue by adding together all the questions that have 
+            // been done by the player and if it = the length of the array of objects then it ends the game
             if ((numberIncorrect + numberCorrect + numberOfunanswered) === questionCount) {
-                $("#questionsHere").empty();
-                $("#questionsHere").html("<h3>Game Over!  Here's how you did: </h3>");
-                $("#possibleAnswers").append("<h4> Correct: " + numberCorrect + "</h4>" );
-                $("#possibleAnswers").append("<h4> Incorrect: " + numberIncorrect + "</h4>" );
-                $("#possibleAnswers").append("<h4> Unanswered: " + numberOfunanswered + "</h4>" );
-                $("#restartGame").show();
+
+                // This will 'hide' the div where the questions are shown to the player and display the text below instead
+                $('#questionsHere').empty();
+                $('#questionsHere').html('<h3>Game Over!  Here\'s how you did: </h3>');
+                // Then these will also be shown underneath the text above, one under the other
+                $('#possibleAnswers').append('<h4> Correct: ' + numberCorrect + '</h4>');
+                $('#possibleAnswers').append('<h4> Incorrect: ' + numberIncorrect + '</h4>');
+                $('#possibleAnswers').append('<h4> Unanswered: ' + numberOfunanswered + '</h4>');
+                // Now that the game is done, the play again button will show itself to the player if they want to try again
+                $('#restartGame').show();
                 numberCorrect = 0;
                 numberIncorrect = 0;
                 numberOfunanswered = 0;
@@ -240,6 +245,7 @@ $(document).ready(function () {
     
             }
 
+        // Time before the next question is shown
         }, 2500);
     
     }

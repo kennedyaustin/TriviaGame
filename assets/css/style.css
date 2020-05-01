@@ -22,6 +22,13 @@ body {
     color: white;
     text-align: center;
     font-family: 'Minecraft';
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+img {
+    height: auto;
+    width: 100%;
 }
 
 .wrapper {
@@ -31,7 +38,7 @@ body {
     text-align: center;
 }
 
-.answerchoice {
+.userChoice {
 	border: 1px solid black;
     border-radius: 5%;
 	width: 40%;
@@ -44,18 +51,29 @@ body {
     overflow-wrap: normal;
 }
 
-img {
-    max-height: 250px;
-    width: auto;
+.btn {
+    position: relative;
+    bottom: -150px;
+    background-color: transparent;
+    border: none;
 }
 
 #reset {
     visibility: visible;
 }
 
-.btn {
-    position: relative;
-    bottom: -150px;
-    background-color: transparent;
-    border: none;
+#TimeRemaining {
+margin-top: 40px;
+}
+
+#questionsHere {
+    margin-top: 40px;
+}
+
+#possibleAnswers {
+    margin-top: 40px;
+}
+
+#startGame {
+    background-image: url(../images/minecraftlava.png);
 }
