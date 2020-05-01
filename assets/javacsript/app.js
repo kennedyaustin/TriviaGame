@@ -12,7 +12,7 @@ $(document).ready(function () {
             myQuestions: 'What resource isn\'t used when constructing the pyramid for a beacon?', 
             possibleAnswers: ['Diamond', 'Iron', 'Emerald', 'Coal'],
             correctAnswer: 3,
-            photo: 'assets/images/coal.png'
+            photo: 'assets/images/coal.jpg'
          }, {
             myQuestions: 'How much iron is needed to craft an anvil?', 
             possibleAnswers: ['29', '31', '25', '33'],
