@@ -159,7 +159,7 @@ $(document).ready(function () {
 
             // This for loop is how the possible answers to the questions generated above are shown to the 
             // player
-            var answerblocks = $('<div>');
+            var answerblocks = $('<button>');
             // The variable answer blocks is going to generate <div>s for the user to see
             answerblocks.addClass('userChoice');
             answerblocks.html(corresponding.possibleAnswers[i]);
