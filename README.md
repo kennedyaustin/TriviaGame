@@ -12,7 +12,7 @@ An image will be shown to the player that correlates with what the previous ques
   ● Running out of Time <br>
   ![](MinecraftSS/RunoutTime.png) <br>
 -At the end of the game the webpage will tally up the number of correct, incorrect, and unanswered questions and display them for the viewer to see before prompting them to play again.
-  ● Score/ Play Again
+  ● Score/ Play Again <br>
   ![](MinecraftSS/PlayAgain.png) <br>
 
 # Tools Used
